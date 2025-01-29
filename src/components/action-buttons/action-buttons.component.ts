@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BtnClassType } from '../../shared/btn-enum-type';
 
 @Component({
   selector: 'app-action-buttons',
@@ -10,7 +11,9 @@ import { CommonModule } from '@angular/common';
 })
 export class ActionButtonsComponent implements OnInit {
 
-
+  @Input() btnType: BtnClassType = BtnClassType.primary;
+  @Input() text: string = "click";
+  @Output() click: EventEmitter<any> = new EventEmitter();
   constructor() {
     //constructor
   }
