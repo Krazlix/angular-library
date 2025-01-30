@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BtnClassType } from '../../shared/btn-enum-type';
+import { BtnClassType } from '../../shared/enum/btn-enum-type';
 
 @Component({
   selector: 'app-action-buttons',
