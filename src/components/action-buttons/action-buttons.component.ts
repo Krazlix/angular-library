@@ -13,7 +13,7 @@ export class ActionButtonsComponent implements OnInit {
 
   @Input() btnType: BtnClassType = BtnClassType.primary;
   @Input() text: string = "click";
-  @Output() click: EventEmitter<any> = new EventEmitter();
+  @Output() clicked: EventEmitter<any> = new EventEmitter();
   constructor() {
     //constructor
   }

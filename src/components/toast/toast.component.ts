@@ -1,7 +1,8 @@
 import { AlertService } from './../../services/alert.service';
-import { Component, effect, Inject, Input, OnInit } from '@angular/core';
+import { Component, effect, inject, Inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { Alert } from '../../shared/model/alert';
 import { TextType } from '../../shared/enum/text-enum-type';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-toast',
@@ -10,19 +11,22 @@ import { TextType } from '../../shared/enum/text-enum-type';
   templateUrl: './toast.component.html',
   styleUrl: './toast.component.scss'
 })
-export class ToastComponent implements OnInit {
-  private alertService: AlertService = Inject(AlertService);
+export class ToastComponent implements OnInit, OnDestroy {
+  private alertService: AlertService = inject(AlertService);
+  public alertSignal = this.alertService.alerts();
+  private alertSub: any;
   alerts: Alert[] = [];
 
   constructor() {
+    effect(() => /* signal here*/ 1 + 1);
   }
   ngOnInit(): void {
-    setTimeout(() => {
-      console.log(this.alertService.alertSubject);
-      this.alertService.alertSubject.subscribe(alerts => {
-        this.alerts = [...alerts];
-      });
-    }, 3000);
 
+    this.alertSub = this.alertService.alertSubject.subscribe(alerts => {
+      this.alerts = [...alerts];
+    });
+  }
+  ngOnDestroy(): void {
+    this.alertSub.unsubscribe();
   }
 }
