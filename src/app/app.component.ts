@@ -12,11 +12,18 @@ import { Alert } from '../shared/model/alert';
 import { BlockComponent } from '../components/block/block.component';
 import { CarouselComponent } from '../components/carousel/carousel.component';
 import { Carousel } from '../shared/model/carousel';
+import { InputTextComponent } from "../components/input-text/input-text.component";
+import { InputEmailComponent } from "../components/input-email/input-email.component";
+import { InputNumberComponent } from "../components/input-number/input-number.component";
+import { InputTextareaComponent } from "../components/input-textarea/input-textarea.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ActionButtonsComponent, CardComponent, CancelButtonComponent, SaveButtonComponent, SpinnerComponent, ToastComponent, BlockComponent, CarouselComponent],
+  imports: [RouterOutlet, ActionButtonsComponent, CardComponent,
+    CancelButtonComponent, SaveButtonComponent, SpinnerComponent,
+    ToastComponent, BlockComponent, CarouselComponent, InputTextComponent,
+    InputEmailComponent, InputNumberComponent, InputTextareaComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

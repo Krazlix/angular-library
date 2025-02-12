@@ -1,24 +1,31 @@
-<div><app-save-button (saveButtonPressed)="startAction($event)"></app-save-button></div>
-<div>
-  <app-card>aaah</app-card>
-</div>
-<app-cancel-button></app-cancel-button>
-<app-action-buttons (click)="startAction($event)"></app-action-buttons>
-<app-spinner></app-spinner>
-<app-toast></app-toast>
-<app-block [title]="'block 1'" [id]="1">
-  <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
-  plugin adds the appropriate classes that we use to style each element. These classes control the overall
-  appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
-  custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
-  within the <code>.accordion-body</code>, though the transition does limit overflow.
-</app-block>
-<app-block [title]="'block 2'" [id]="2">
-  <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
-  plugin adds the appropriate classes that we use to style each element. These classes control the overall
-  appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
-  custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
-  within the <code>.accordion-body</code>, though the transition does limit overflow.
+<div class="body">
+  <div><app-save-button (saveButtonPressed)="startAction($event)"></app-save-button></div>
+  <div>
+    <app-card>aaah</app-card>
+  </div>
+  <app-cancel-button></app-cancel-button>
   <app-action-buttons (click)="startAction($event)"></app-action-buttons>
-</app-block>
-<app-carousel [items]="carouselItems"></app-carousel>
+  <app-spinner></app-spinner>
+  <app-toast></app-toast>
+  <input-text></input-text>
+  <input-email></input-email>
+  <app-input-number></app-input-number>
+  <app-input-textarea></app-input-textarea>
+  <app-block [title]="'block 1'" [id]="1">
+
+    <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
+    plugin adds the appropriate classes that we use to style each element. These classes control the overall
+    appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+    custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
+    within the <code>.accordion-body</code>, though the transition does limit overflow.
+  </app-block>
+  <app-block [title]="'block 2'" [id]="2">
+    <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
+    plugin adds the appropriate classes that we use to style each element. These classes control the overall
+    appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with
+    custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go
+    within the <code>.accordion-body</code>, though the transition does limit overflow.
+    <app-action-buttons (click)="startAction($event)"></app-action-buttons>
+  </app-block>
+  <app-carousel [items]="carouselItems"></app-carousel>
+</div>
