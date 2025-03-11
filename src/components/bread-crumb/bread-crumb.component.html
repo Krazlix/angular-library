@@ -1,7 +1,6 @@
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item"><a href="#">Library</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Data</li>
-    </ol>
+<nav class="nav nav-tabs" aria-label="breadcrumb">
+    @for (link of pathTitle; track $index) {
+    <li class="nav-item"><a [class.active]="pathTitle.length-1===$index" class="nav-link"
+            [href]="path[$index]">{{link}}</a></li>
+    }
 </nav>

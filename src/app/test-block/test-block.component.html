@@ -1,0 +1,16 @@
+<div class="demo-container">
+    <h2>Infinite Tree View Demo</h2>
+
+    <app-infinite-tree-view [treeData]="treeData" (nodeClicked)="onNodeClicked($event)"
+        (nodeAdded)="onNodeAdded($event)" (nodeDeleted)="onNodeDeleted($event)" (nodeEdited)="onNodeEdited($event)">
+    </app-infinite-tree-view>
+    @if (selectedNode) {
+    <div class="node-details">
+        <h3>Selected Node Details</h3>
+        <p><strong>ID:</strong> {{selectedNode.id}}</p>
+        <p><strong>Label:</strong> {{selectedNode.label}}</p>
+        <pre>{{selectedNode | json}}</pre>
+    </div>
+    }
+
+</div>

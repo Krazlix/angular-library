@@ -1,29 +1,15 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ActionButtonsComponent } from '../components/action-buttons/action-buttons.component';
-import { CardComponent } from '../components/card/card.component';
-import { CancelButtonComponent } from "../components/cancel-button/cancel-button.component";
-import { SaveButtonComponent } from "../components/save-button/save-button.component";
-import { SpinnerComponent } from '../components/spinner/spinner.component';
-import { ToastComponent } from "../components/toast/toast.component";
 import { AlertService } from '../services/alert.service';
 import { TextType } from '../shared/enum/text-enum-type';
 import { Alert } from '../shared/model/alert';
-import { BlockComponent } from '../components/block/block.component';
-import { CarouselComponent } from '../components/carousel/carousel.component';
 import { Carousel } from '../shared/model/carousel';
-import { InputTextComponent } from "../components/input-text/input-text.component";
-import { InputEmailComponent } from "../components/input-email/input-email.component";
-import { InputNumberComponent } from "../components/input-number/input-number.component";
-import { InputTextareaComponent } from "../components/input-textarea/input-textarea.component";
+import { RouterOutlet } from '@angular/router';
+import { BreadCrumbComponent } from "../components/bread-crumb/bread-crumb.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ActionButtonsComponent, CardComponent,
-    CancelButtonComponent, SaveButtonComponent, SpinnerComponent,
-    ToastComponent, BlockComponent, CarouselComponent, InputTextComponent,
-    InputEmailComponent, InputNumberComponent, InputTextareaComponent],
+  imports: [RouterOutlet, BreadCrumbComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
