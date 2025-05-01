@@ -12,11 +12,12 @@ import { ToastComponent } from "../../../components/toast/toast.component";
 import { InputNumberComponent } from "../../../components/input-number/input-number.component";
 import { InputEmailComponent } from "../../../components/input-email/input-email.component";
 import { BreadCrumbComponent } from "../../../components/bread-crumb/bread-crumb.component";
+import { TreeNode, InfiniteTreeViewComponent } from '../../../components/treeview/treeview.component';
 
 @Component({
   selector: 'app-test',
   imports: [SaveButtonComponent, CancelButtonComponent, CardComponent, ActionButtonsComponent, BlockComponent, CarouselComponent, InputTextareaComponent,
-    SpinnerComponent, InputTextComponent, ToastComponent, InputNumberComponent, InputEmailComponent, BreadCrumbComponent],
+    SpinnerComponent, InputTextComponent, ToastComponent, InputNumberComponent, InputEmailComponent, BreadCrumbComponent, InfiniteTreeViewComponent],
   standalone: true,
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss'
@@ -25,6 +26,31 @@ export class TestComponent {
   startAction($event: Event) {
     throw new Error('Method not implemented.');
   }
+  treeData: TreeNode[] = [
+    {
+      id: '1',
+      label: 'Root Node 1',
+      expanded: true,
+      children: [
+        {
+          id: '1.1',
+          label: 'Child 1.1',
+          children: [
+            { id: '1.1.1', label: 'Grandchild 1.1.1', children: [] },
+            { id: '1.1.2', label: 'Grandchild 1.1.2', children: [] }
+          ]
+        },
+        { id: '1.2', label: 'Child 1.2', children: [] }
+      ]
+    },
+    {
+      id: '2',
+      label: 'Root Node 2',
+      children: [
+        { id: '2.1', label: 'Child 2.1', children: [] }
+      ]
+    }
+  ];
   carouselItems: any;
 
 }

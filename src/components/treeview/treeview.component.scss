@@ -35,38 +35,6 @@
     flex: 1;
 }
 
-.node-actions {
-    display: flex;
-    gap: 5px;
-    opacity: 0;
-    transition: opacity 0.2s;
-}
-
-.node-content:hover .node-actions {
-    opacity: 1;
-}
-
-.add-btn,
-.delete-btn {
-    border: none;
-    background: none;
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-}
-
-.add-btn {
-    color: green;
-}
-
-.delete-btn {
-    color: red;
-}
 
 .children-container {
     position: relative;
@@ -81,67 +49,4 @@
     bottom: 0;
     width: 1px;
     background-color: #ddd;
-}
-
-.add-root-node {
-    margin-top: 10px;
-}
-
-.add-root-btn {
-    padding: 5px 10px;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.edit-dialog {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-.edit-dialog-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    min-width: 300px;
-}
-
-.edit-dialog-content input {
-    width: 100%;
-    padding: 8px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.edit-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-}
-
-.edit-actions button {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.edit-actions button:first-child {
-    background-color: #4caf50;
-    color: white;
-}
-
-.edit-actions button:last-child {
-    background-color: #f44336;
-    color: white;
 }

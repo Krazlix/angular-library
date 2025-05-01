@@ -1,4 +1,6 @@
 <div class="input-group">
+    @if (label) {
     <span class="input-group-text">{{label}}</span>
+    }
     <input type="texte" [disabled]="disabled" [class]="size" class="form-control" [id]="id" [placeholder]="placeholder">
 </div>

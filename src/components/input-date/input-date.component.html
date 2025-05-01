@@ -1,0 +1,14 @@
+<div class="date-time-picker-container" [formGroup]="dateTimeForm">
+    <div class="form-group date-group">
+        <label for="date">Date:</label>
+        <input type="date" id="date" formControlName="date" [disabled]="disabled" (blur)="onTouched()">
+    </div>
+
+    <div class="time-container">
+        <label>Time:</label>
+        <div class="time-controls">
+            <app-select [(label)]="labelHours" formControlName="hours" [options]="hoursList"></app-select>
+            <app-select [(label)]="labelMinutes" [options]="minutesList"></app-select>
+        </div>
+    </div>
+</div>

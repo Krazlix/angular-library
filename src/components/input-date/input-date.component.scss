@@ -1,0 +1,65 @@
+.date-time-picker-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: Arial, sans-serif;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+input[type="date"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, .25);
+}
+
+.time-container {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.time-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.time-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+input:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+@media (min-width: 576px) {
+    .date-time-picker-container {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .date-group {
+        flex: 1;
+    }
+}

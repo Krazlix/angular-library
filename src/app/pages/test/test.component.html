@@ -27,4 +27,8 @@
     within the <code>.accordion-body</code>, though the transition does limit overflow.
     <app-action-buttons (click)="startAction($event)"></app-action-buttons>
 </app-block>
+<div>
+    <app-infinite-tree-view [treeData]="treeData">
+    </app-infinite-tree-view>
+</div>
 <app-carousel [items]="carouselItems"></app-carousel>

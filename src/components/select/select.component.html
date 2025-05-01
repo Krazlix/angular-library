@@ -1,0 +1,30 @@
+<div class="select" (blur)="looseFocus()" tabindex="0">
+    <div class="select-container" (click)="toggleOptions()">
+        @if (search) {
+        <div class="label">
+            <input type="text" class="search" [(value)]="label" (input)="filterOptions($event)" />
+        </div>
+        }
+        @else {
+        <div class="label">
+            <span> {{ label.trim() ? label : '&nbsp;' }}</span>
+        </div>
+        }
+
+        <div id="chevrons">
+            <span class="material-icons">expand_less</span>
+            <span class="material-icons">expand_more</span>
+        </div>
+    </div>
+    @if (optionToggled) {
+    <div class="options">
+        @for (value of options; track $index) {
+        <div (click)="setSelectValue(value)" class="option">
+            <span> {{ value.trim() ? value : '&nbsp;' }}</span>
+        </div>
+        }
+
+    </div>
+    }
+
+</div>

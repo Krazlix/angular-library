@@ -12,47 +12,15 @@
                 <span class="node-label" (click)="onNodeClick(node)">
                     {{ node.label }}
                 </span>
-                <div class="node-actions">
-                    @if (allowAdd) {<button class="add-btn" (click)="addChildNode(node)">+</button>}
-                    @if (allowDelete) { <button class="delete-btn" (click)="deleteNode(node)">×</button>}
-
-                </div>
             </div>
-            <!-- Recursive component call for children -->
             @if (node.expanded && node.children && node.children.length > 0) {
             <div class="children-container">
                 <div class="indent-line"></div>
-                <app-infinite-tree-view [treeData]="node.children" [allowAdd]="allowAdd" [allowDelete]="allowDelete"
-                    [allowEdit]="allowEdit" (nodeClicked)="onChildNodeClick($event)"
-                    (nodeAdded)="onChildNodeAdded($event)" (nodeDeleted)="onChildNodeDeleted($event)"
-                    (nodeEdited)="onChildNodeEdited($event)">
+                <app-infinite-tree-view [treeData]="node.children" (nodeClicked)="onChildNodeClick($event)">
                 </app-infinite-tree-view>
             </div>
             }
-
-
         </div>
     </ng-container>
     }
-    <!-- Add node at root level -->
-    @if (allowAdd && isRootLevel) {
-    <div class="add-root-node">
-        <button class="add-root-btn" (click)="addRootNode()">Add Root Node</button>
-    </div>
-    }
-
-
-    @if (editingNode) {
-    <div class="edit-dialog">
-        <div class="edit-dialog-content">
-            <h3>{{ isNewNode ? 'Add Node' : 'Edit Node' }}</h3>
-            <input #editInput [(ngModel)]="editingNodeLabel" placeholder="Node name">
-            <div class="edit-actions">
-                <button (click)="saveNodeEdit()">Save</button>
-                <button (click)="cancelNodeEdit()">Cancel</button>
-            </div>
-        </div>
-    </div>
-    }
-
 </div>
