@@ -13,11 +13,13 @@ import { InputNumberComponent } from "../../../components/input-number/input-num
 import { InputEmailComponent } from "../../../components/input-email/input-email.component";
 import { BreadCrumbComponent } from "../../../components/bread-crumb/bread-crumb.component";
 import { TreeNode, InfiniteTreeViewComponent } from '../../../components/treeview/treeview.component';
+import { SelectComponent } from "../../../components/select/select.component";
+import { InputDateComponent } from "../../../components/input-date/input-date.component";
 
 @Component({
   selector: 'app-test',
   imports: [SaveButtonComponent, CancelButtonComponent, CardComponent, ActionButtonsComponent, BlockComponent, CarouselComponent, InputTextareaComponent,
-    SpinnerComponent, InputTextComponent, ToastComponent, InputNumberComponent, InputEmailComponent, BreadCrumbComponent, InfiniteTreeViewComponent],
+    SpinnerComponent, InputTextComponent, ToastComponent, InputNumberComponent, InputEmailComponent, BreadCrumbComponent, InfiniteTreeViewComponent, SelectComponent, InputDateComponent],
   standalone: true,
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss'

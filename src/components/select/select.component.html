@@ -1,4 +1,4 @@
-<div class="select" (blur)="looseFocus()" tabindex="0">
+<div class="select" (focusin)="onFocusIn()" (focusout)="onFocusOut($event)" tabindex="0">
     <div class="select-container" (click)="toggleOptions()">
         @if (search) {
         <div class="label">

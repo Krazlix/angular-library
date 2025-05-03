@@ -50,12 +50,9 @@ export class InputDateComponent implements ControlValueAccessor, OnInit {
       } else {
         this.onChange(null);
       }
+      console.log('Form value changed:', this.dateTimeForm.value);
     });
 
-    this.dateTimeForm.get('hours')!.valueChanges.subscribe(val => {
-      console.log('hours changed:', val);
-      this.labelHours = val.toString();
-    });
   }
 
 
@@ -64,8 +61,8 @@ export class InputDateComponent implements ControlValueAccessor, OnInit {
     if (value) {
       this.dateTimeForm.setValue({
         date: value.toISOString().split('T')[0],
-        hours: this.labelHours,
-        minutes: this.labelMinutes
+        hours: value.getHours(),
+        minutes: value.getMinutes()
       }, { emitEvent: false });
     } else {
       this.dateTimeForm.reset({

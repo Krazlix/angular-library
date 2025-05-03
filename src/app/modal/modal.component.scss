@@ -1,0 +1,27 @@
+/* modal.component.scss */
+.modal.show {
+    visibility: visible;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-transition: background-color 1000ms linear, opacity 1000ms linear;
+    -ms-transition: background-color 1000ms linear, opacity 1000ms linear;
+    transition: background-color 1000ms linear, opacity 1000ms linear;
+    opacity: 1;
+}
+
+.modal {
+    visibility: hidden;
+    display: block;
+    opacity: 0;
+}
+
+.modal-dialog {
+    position: fixed;
+    place-self: anchor-center;
+    width: 80%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+}

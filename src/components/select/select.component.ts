@@ -64,5 +64,21 @@ export class SelectComponent implements OnInit {
   }
   setDisabledState?(isDisabled: boolean): void { }
 
+  focusInside = false;
+
+  onFocusIn() {
+    this.focusInside = true;
+  }
+
+  onFocusOut(event: FocusEvent) {
+    // Only close if focus moves outside the component
+    const currentTarget = event.currentTarget as HTMLElement;
+    if (!currentTarget.contains(event.relatedTarget as Node)) {
+      this.optionToggled = false;
+      this.focusInside = false;
+      this.onTouched();
+    }
+  }
+
 
 }

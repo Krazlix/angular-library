@@ -8,7 +8,7 @@
         <label>Time:</label>
         <div class="time-controls">
             <app-select [(label)]="labelHours" formControlName="hours" [options]="hoursList"></app-select>
-            <app-select [(label)]="labelMinutes" [options]="minutesList"></app-select>
+            <app-select [(label)]="labelMinutes" formControlName="minutes" [options]="minutesList"></app-select>
         </div>
     </div>
 </div>
