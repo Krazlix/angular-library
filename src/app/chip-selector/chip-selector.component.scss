@@ -1,0 +1,44 @@
+.chip-selector {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+.chip-list {
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+}
+
+.chip-title {
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+
+}
+
+.chip-input {
+    margin-top: 5px;
+    border-top: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    padding: 4px 6px;
+    color: #000;
+    width: 100%;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.chip-input>input {
+    margin-right: 5px;
+}
+
+.no-chips {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+}

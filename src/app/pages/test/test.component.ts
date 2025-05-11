@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { SaveButtonComponent } from "../../../components/save-button/save-button.component";
+import { AlertService } from './../../../services/alert.service';
+import { Component, inject } from '@angular/core';
+import { LoadingButtonComponent } from "../../../components/save-button/loading-button.component";
 import { CancelButtonComponent } from "../../../components/cancel-button/cancel-button.component";
 import { CardComponent } from "../../../components/card/card.component";
 import { ActionButtonsComponent } from "../../../components/action-buttons/action-buttons.component";
@@ -15,18 +16,26 @@ import { BreadCrumbComponent } from "../../../components/bread-crumb/bread-crumb
 import { TreeNode, InfiniteTreeViewComponent } from '../../../components/treeview/treeview.component';
 import { SelectComponent } from "../../../components/select/select.component";
 import { InputDateComponent } from "../../../components/input-date/input-date.component";
+import { ChipSelectorComponent } from "../../chip-selector/chip-selector.component";
+import { CheckboxComponent } from "../../checkbox/checkbox.component";
+import { TimelineComponent } from "../../timeline/timeline.component";
+import { Alert } from '../../../shared/model/alert';
+import { TextType } from '../../../shared/enum/text-enum-type';
+import { RangeComponent } from "../../range/range.component";
+import { FileUploadComponent } from "../../file-upload/file-upload.component";
 
 @Component({
   selector: 'app-test',
-  imports: [SaveButtonComponent, CancelButtonComponent, CardComponent, ActionButtonsComponent, BlockComponent, CarouselComponent, InputTextareaComponent,
-    SpinnerComponent, InputTextComponent, ToastComponent, InputNumberComponent, InputEmailComponent, BreadCrumbComponent, InfiniteTreeViewComponent, SelectComponent, InputDateComponent],
+  imports: [LoadingButtonComponent, CancelButtonComponent, CardComponent, ActionButtonsComponent, BlockComponent, CarouselComponent, InputTextareaComponent,
+    SpinnerComponent, InputTextComponent, ToastComponent, InputNumberComponent, InputEmailComponent, BreadCrumbComponent, InfiniteTreeViewComponent, SelectComponent, InputDateComponent, ChipSelectorComponent, CheckboxComponent, TimelineComponent, RangeComponent, FileUploadComponent],
   standalone: true,
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss'
 })
 export class TestComponent {
+  alertService = inject(AlertService);
   startAction($event: Event) {
-    throw new Error('Method not implemented.');
+    this.alertService.pushNewAlert(new Alert(TextType.success, 'Action started', 5000));
   }
   treeData: TreeNode[] = [
     {

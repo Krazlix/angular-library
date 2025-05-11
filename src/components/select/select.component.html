@@ -1,7 +1,10 @@
 <div class="select" (focusin)="onFocusIn()" (focusout)="onFocusOut($event)" tabindex="0">
     <div class="select-container" (click)="toggleOptions()">
         @if (search) {
-        <div class="label">
+        <div class="label flex">
+            @for (item of selectedOptions; track $index) {
+            <app-chip [label]="item.value" [id]="item.index" (delete)="setSelected(item.index)"></app-chip>
+            }
             <input type="text" class="search" [(value)]="label" (input)="filterOptions($event)" />
         </div>
         }
@@ -18,11 +21,23 @@
     </div>
     @if (optionToggled) {
     <div class="options">
-        @for (value of options; track $index) {
-        <div (click)="setSelectValue(value)" class="option">
-            <span> {{ value.trim() ? value : '&nbsp;' }}</span>
+        @if(multiple){
+        @for (option of options; track $index) {
+        <div (click)="setSelected($index)" class="option multipleSelection">
+            <span> {{ option.value.trim() ? option.value : '&nbsp;' }}</span>
+            <app-checkbox [id]="option.value" class="checkbox" [checked]="option.selected"
+                (checkEvent)="setSelected($index)"></app-checkbox>
         </div>
         }
+        }
+        @else {
+        @for (option of options; track $index) {
+        <div (click)="setSelectValue(option.value)" class="option">
+            <span> {{ option.value.trim() ? option.value : '&nbsp;' }}</span>
+        </div>
+        }
+        }
+
 
     </div>
     }

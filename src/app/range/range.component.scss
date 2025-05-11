@@ -1,0 +1,120 @@
+.range {
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+    color: var(--lighter-blue);
+    cursor: grab;
+}
+
+.range:active {
+    cursor: grabbing;
+}
+
+.tooltip {
+    opacity: 1;
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--heavier-blue);
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    top: 0px;
+    font-size: smaller;
+    z-index: 1;
+    margin-top: -25px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    justify-self: anchor-center;
+}
+
+
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background: linear-gradient(var(--light-blue) 0 0) scroll no-repeat center / 100% calc(var(--track-height) + 1px);
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: #000;
+    }
+
+    html::before {
+        background: radial-gradient(circle at center, #101112, #000);
+    }
+
+    input[type="range"] {
+        color: #f07167;
+    }
+}
+
+
+input[type="range"] {
+    font-size: 1.5rem;
+    width: 8.5em;
+}
+
+input[type="range"] {
+    color: #ef233c;
+    --thumb-height: 0.75em;
+    --track-height: 0.125em;
+    --track-color: rgba(0, 0, 0, 0.2);
+    --brightness-hover: 180%;
+    --brightness-down: 80%;
+    --clip-edges: 0.125em;
+}
+
+
+/* === range commons === */
+input[type="range"] {
+    position: relative;
+    overflow: hidden;
+}
+
+input[type="range"]:disabled {
+    filter: grayscale(1);
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* === WebKit specific styles === */
+input[type="range"],
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    transition: all ease 100ms;
+    height: var(--thumb-height);
+}
+
+
+input[type="range"]::-webkit-slider-thumb {
+    --thumb-radius: calc((var(--thumb-height) * 0.5) - 1px);
+    --clip-top: calc((var(--thumb-height) - var(--track-height)) * 0.5 - 0.5px);
+    --clip-bottom: calc(var(--thumb-height) - var(--clip-top));
+    --clip-further: calc(100% + 1px);
+    --box-fill: calc(-100vmax - var(--thumb-width, var(--thumb-height))) 0 0 100vmax var(--heavier-blue);
+
+    width: var(--thumb-width, var(--thumb-height));
+    background: linear-gradient(var(--heavier-blue) 0 0) scroll no-repeat left center / 50% calc(var(--track-height) + 1px);
+    background-color: var(--heavier-blue);
+    box-shadow: var(--box-fill);
+    border-radius: var(--thumb-width, var(--thumb-height));
+
+    filter: brightness(100%);
+    clip-path: polygon(100% -1px,
+            var(--clip-edges) -1px,
+            0 var(--clip-top),
+            -100vmax var(--clip-top),
+            -100vmax var(--clip-bottom),
+            0 var(--clip-bottom),
+            var(--clip-edges) 100%,
+            var(--clip-further) var(--clip-further));
+}

@@ -23,6 +23,7 @@ export class ToastComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     this.alertSub = this.alertService.alertSubject.subscribe(alerts => {
+      console.log('alerts', alerts);
       this.alerts = [...alerts];
     });
   }

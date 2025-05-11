@@ -1,0 +1,15 @@
+<div class="upload-container" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
+    <p>Please drop your files here or </p>
+    <input class="" type="file" (change)="onFileSelected($event)" multiple>
+    <ul>
+        @for (file of files; track $index) {
+        <li>
+            <div class="chip">{{ file.name }} <button type="button" class="close"
+                    (click)="removeFile($index)">x</button></div>
+        </li>
+        }
+    </ul>
+    @if(multiple){
+    <app-loading-button [label]="'Uploader'" (click)="uploadFiles()"></app-loading-button>
+    }
+</div>

@@ -1,0 +1,22 @@
+<div class="chip-selector">
+    <div class="chip-title">
+        <h5>Chip Selector</h5>
+    </div>
+    <div class="chip-list">
+        @if(chipList.length > 0) {
+        @for (chip of chipList; track $index) {
+        <app-chip [id]="$index" (delete)="deleteChips($index)" [label]="chip"></app-chip>
+        }
+        }
+        @else {
+        <div class="no-chips">
+            <span>No chips added yet.</span>
+        </div>
+        }
+    </div>
+    <div class="chip-input">
+        <input type="text" class="form-control" placeholder="Add a new chip" [(ngModel)]="newChip"
+            (keyup.enter)="addChip()" />
+        <button class="btn btn-primary" (click)="addChip()">Add</button>
+    </div>
+</div>

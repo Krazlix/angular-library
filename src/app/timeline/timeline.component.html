@@ -1,0 +1,54 @@
+@if(!vertical){
+<div class="bars-container">
+    @for (item of items; track $index) {
+    @if($index != currentGoalIndex-1){
+    <div class="label">
+        <p>{{item.label}}</p>
+        <span class="material-icons">
+            {{item.icon}}
+        </span>
+    </div>
+    @if($index != items.length-1){
+    <div [class.empty]="$index > currentGoalIndex-1" class="bar"></div>
+    }
+    }
+    @else {
+    <div class="label">
+        <p>{{item.label}}</p>
+        <span class="material-icons">
+            {{item.icon}}
+        </span>
+    </div>
+    <div class="loading"></div>
+    }
+
+    }
+</div>
+}
+@else{
+<div class="bars-container vertical">
+    @for (item of items; track $index) {
+    @if($index != currentGoalIndex-1){
+    <div class="label vertical">
+        <p>{{item.label}}</p>
+        <span class="material-icons">
+            {{item.icon}}
+        </span>
+    </div>
+    @if($index != items.length-1){
+    <div [class.empty]="$index > currentGoalIndex-1" class="bar vertical"></div>
+    }
+    }
+    @else {
+    <div class=" label vertical">
+        <p>{{item.label}}</p>
+        <span class="material-icons">
+            {{item.icon}}
+        </span>
+    </div>
+    <div class="loading vertical"></div>
+    }
+
+    }
+</div>
+}

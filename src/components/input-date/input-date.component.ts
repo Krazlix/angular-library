@@ -2,6 +2,8 @@
 import { Component, forwardRef, OnInit } from '@angular/core';
 import { ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SelectComponent } from "../select/select.component";
+import { convertToSelectionArray } from '../../shared/util/selection-util';
+import { Option } from '../../shared/model/option';
 
 @Component({
   selector: 'app-input-date',
@@ -23,8 +25,8 @@ export class InputDateComponent implements ControlValueAccessor, OnInit {
   disabled = false;
   labelHours = '0';
   labelMinutes = "0";
-  hoursList: string[] = Array.from({ length: 24 }, (_, i) => i.toString());
-  minutesList: string[] = Array.from({ length: 60 }, (_, i) => i.toString());
+  hoursList: Option[] = convertToSelectionArray(Array.from({ length: 24 }, (_, i) => i.toString()));
+  minutesList: Option[] = convertToSelectionArray(Array.from({ length: 60 }, (_, i) => i.toString()));
 
 
   hours = 0;

@@ -1,16 +1,24 @@
 <app-bread-crumb />
-<div><app-save-button (saveButtonPressed)="startAction($event)"></app-save-button></div>
+<div><app-loading-button (saveButtonPressed)="startAction($event)"></app-loading-button></div>
 <div>
     <app-card>aaah</app-card>
 </div>
+<app-checkbox [label]="'checkbox'"></app-checkbox>
 <app-cancel-button></app-cancel-button>
 <app-action-buttons (click)="startAction($event)"></app-action-buttons>
 <app-spinner></app-spinner>
 <app-toast></app-toast>
+<app-range></app-range>
 <input-text></input-text>
 <input-email></input-email>
 <app-input-number></app-input-number>
 <app-input-textarea></app-input-textarea>
+<app-chip-selector></app-chip-selector>
+<app-select label="multiple" [multiple]="true"></app-select>
+<app-select label="single" [multiple]="false"></app-select>
+<app-timeline></app-timeline>
+<app-timeline [vertical]="true"></app-timeline>
+<app-file-upload></app-file-upload>
 <app-block [title]="'block 1'" [id]="1">
 
     <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse
@@ -28,7 +36,6 @@
     <app-action-buttons (click)="startAction($event)"></app-action-buttons>
 </app-block>
 <app-input-date></app-input-date>
-<app-select></app-select>
 <div>
     <app-infinite-tree-view [treeData]="treeData">
     </app-infinite-tree-view>
