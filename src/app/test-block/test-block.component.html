@@ -2,4 +2,9 @@
     <form [formGroup]="form">
     </form>
     <p>Selected: {{ form.value.mySelect }}</p>
+    <app-card>aaah</app-card>
+    <app-card
+        [description]="'If you catch the moment just right, if you have perfect timing, the wave will carry you on the ride of a lifetime. Perhaps that is why the surfer is so relaxed. What we practice, we become masters of.'"
+        [icon]="'surfing'" [title]="'new spot'" [imageUrl]="'/surf.jpg'"
+        [buttonText]="'follow your instinct'"></app-card>
 </div>

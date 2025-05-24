@@ -1,5 +1,18 @@
 <div class="card">
-  <button>X</button>
-  <p>test</p>
-  <ng-content></ng-content>
+  <div class="card-header">
+    <span class="material-icons">
+      {{icon}}
+    </span>
+    <h4>{{title}}</h4>
+    <button type="button" class="close" (click)="this.close.emit();">x</button>
+  </div>
+  <div class="card-body">
+    <img [src]="imageUrl" alt="Card image" />
+    <div class="card-content">
+      <ng-content select="[card-header]"></ng-content>
+      <p>{{description}}</p>
+      <ng-content select="[card-body]"></ng-content>
+    </div>
+    <app-action-buttons (clicked)="this.action.emit()" class="action" [text]="buttonText"></app-action-buttons>
+  </div>
 </div>

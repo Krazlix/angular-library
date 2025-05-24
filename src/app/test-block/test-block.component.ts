@@ -8,11 +8,12 @@ import { CheckboxComponent } from "../checkbox/checkbox.component";
 import { TimelineComponent } from "../timeline/timeline.component";
 import { RangeComponent } from "../range/range.component";
 import { FileUploadComponent } from "../file-upload/file-upload.component";
+import { CardComponent } from "../../components/card/card.component";
 
 @Component({
   selector: 'app-test-block',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CardComponent],
   templateUrl: './test-block.component.html',
   styleUrl: './test-block.component.scss'
 })
