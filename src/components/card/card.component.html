@@ -1,4 +1,6 @@
 <div class="card">
+  @if(header) {
+
   <div class="card-header">
     <span class="material-icons">
       {{icon}}
@@ -6,13 +8,27 @@
     <h4>{{title}}</h4>
     <button type="button" class="close" (click)="this.close.emit();">x</button>
   </div>
+  }
   <div class="card-body">
     <img [src]="imageUrl" alt="Card image" />
     <div class="card-content">
+      @if (!header) {<h4>{{title}}</h4>}
       <ng-content select="[card-header]"></ng-content>
-      <p>{{description}}</p>
+      <p [class.description-no-header]="!header">{{description}}</p>
       <ng-content select="[card-body]"></ng-content>
     </div>
+    @if (icons.length > 0) {
+    <div class="div-button-icons">
+      @for (iconName of icons; track $index) {
+
+      <button class="button-icons material-icons"> {{iconName}}</button>
+
+      }
+    </div>
+    }
+    @else {
     <app-action-buttons (clicked)="this.action.emit()" class="action" [text]="buttonText"></app-action-buttons>
+    }
+
   </div>
 </div>

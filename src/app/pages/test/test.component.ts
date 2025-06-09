@@ -1,5 +1,5 @@
 import { AlertService } from './../../../services/alert.service';
-import { Component, inject } from '@angular/core';
+import { ApplicationRef, ChangeDetectorRef, Component, inject } from '@angular/core';
 import { LoadingButtonComponent } from '../../../components/save-button/loading-button.component';
 import { CancelButtonComponent } from '../../../components/cancel-button/cancel-button.component';
 import { CardComponent } from '../../../components/card/card.component';
@@ -27,17 +27,41 @@ import { TextType } from '../../../shared/enum/text-enum-type';
 import { RangeComponent } from '../../range/range.component';
 import { FileUploadComponent } from '../../file-upload/file-upload.component';
 import { RatingComponent } from '../../rating/rating.component';
+import { WidgetCounterComponent } from "../../widget-counter/widget-counter.component";
+import { Subscription, first } from 'rxjs';
 
 @Component({
   selector: 'app-test',
   imports: [LoadingButtonComponent, CancelButtonComponent, CardComponent, ActionButtonsComponent, BlockComponent, CarouselComponent, InputTextareaComponent,
-    SpinnerComponent, InputTextComponent, ToastComponent, InputNumberComponent, InputEmailComponent, BreadCrumbComponent, InfiniteTreeViewComponent, SelectComponent, InputDateComponent, ChipSelectorComponent, CheckboxComponent, TimelineComponent, RangeComponent, FileUploadComponent, RatingComponent],
+    SpinnerComponent, InputTextComponent, ToastComponent, InputNumberComponent, InputEmailComponent, BreadCrumbComponent, InfiniteTreeViewComponent, SelectComponent, InputDateComponent, ChipSelectorComponent, CheckboxComponent, TimelineComponent, RangeComponent, FileUploadComponent, RatingComponent, WidgetCounterComponent],
   standalone: true,
   templateUrl: './test.component.html',
   styleUrl: './test.component.scss',
 })
 export class TestComponent {
   alertService = inject(AlertService);
+  value = 0;
+  sub: Subscription | undefined;
+  applicationRef = inject(ApplicationRef);
+  changesDetectRef = inject(ChangeDetectorRef);
+  ngOnInit() {
+
+    this.sub = this.applicationRef.isStable.pipe(first((isStable) => isStable)).subscribe(() => {
+      setInterval(() => {
+        this.value = Math.floor(Math.random() * 3000);
+        this.changesDetectRef.detectChanges();
+      }, 5000);
+    });
+
+  }
+
+  ngOnDestroy() {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
+  }
+
+
   startAction($event: Event) {
     this.alertService.pushNewAlert(
       new Alert(TextType.success, 'Action started', 5000)

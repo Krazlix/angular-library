@@ -19,6 +19,34 @@
     width: 100%;
 }
 
+.div-button-icons {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+    flex-direction: row-reverse;
+    width: 100%;
+    margin-right: 2em;
+}
+
+.button-icons {
+    color: gray;
+    font-size: 1.5em;
+    margin-left: 5px;
+    width: 1.5em;
+    height: 1.5em;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+        color: black;
+        transition: all 0.15s ease-in-out;
+    }
+}
+
+.description-no-header {
+    color: gray
+}
+
 .material-icons {
     font-size: 1.5em;
 }

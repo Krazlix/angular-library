@@ -16,6 +16,8 @@ export class CardComponent {
   @Input() imageUrl: string = '';
   @Input() buttonText: string = '';
   @Input() icon: string = '';
+  @Input() header: boolean = false;
+  @Input() icons: string[] = [];
 
   @Output() close: EventEmitter<void> = new EventEmitter<void>();
   @Output() action: EventEmitter<void> = new EventEmitter<void>();
