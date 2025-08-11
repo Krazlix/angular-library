@@ -6,11 +6,12 @@ import { start } from 'node:repl';
 import { first, Subscription } from 'rxjs';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { MobileMenuComponent } from "../mobile-menu/mobile-menu.component";
+import { DateFieldComponent } from "../date-field/date-field.component";
 
 @Component({
   selector: 'app-test-block',
   standalone: true,
-  imports: [ReactiveFormsModule, WidgetCounterComponent, NavbarComponent, MobileMenuComponent],
+  imports: [ReactiveFormsModule, WidgetCounterComponent, NavbarComponent, MobileMenuComponent, DateFieldComponent],
   templateUrl: './test-block.component.html',
   styleUrl: './test-block.component.scss',
 })

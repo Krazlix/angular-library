@@ -1,10 +1,12 @@
 <app-bread-crumb />
+<app-navbar></app-navbar>
 <div>
   <app-loading-button (saveButtonPressed)="startAction($event)"></app-loading-button>
 </div>
 <app-checkbox [label]="'checkbox'"></app-checkbox>
 <app-cancel-button></app-cancel-button>
-<app-action-buttons (click)="startAction($event)"></app-action-buttons>
+<app-action-buttons [text]="'showAlert'" (click)="startAction($event)"></app-action-buttons>
+<app-action-buttons [text]="'showModal'" (click)="showModal()"></app-action-buttons>
 <app-spinner></app-spinner>
 <app-toast></app-toast>
 <app-range></app-range>
@@ -17,37 +19,47 @@
 <app-select label="single" [multiple]="false"></app-select>
 <app-rating></app-rating>
 <div class="flex">
-  <app-card [imageUrl]="'/musique.jpg'" [title]="'musique'"
-    [icons]="['play_circle_filled','library_add','star','forum']"
-    [description]="'Un senior, des vyniles, un casque, les ravages de Jhonny sur cette génération.'"></app-card>
-  <app-card [header]="true"
-    [description]="'If you catch the moment just right, if you have perfect timing, the wave will carry you on the ride of a lifetime. Perhaps that is why the surfer is so relaxed. What we practice, we become masters of.'"
-    [icon]="'surfing'" [title]="'new spot'" [imageUrl]="'/surf.jpg'" [buttonText]="'follow your instinct'"></app-card>
+  <app-card
+    [imageUrl]="'/musique.jpg'"
+    [title]="'musique'"
+    [icons]="['play_circle_filled', 'library_add', 'star', 'forum']"
+    [description]="'Un senior, des vyniles, un casque, les ravages de Jhonny sur cette génération.'"
+  ></app-card>
+  <app-card
+    [header]="true"
+    [description]="
+      'If you catch the moment just right, if you have perfect timing, the wave will carry you on the ride of a lifetime. Perhaps that is why the surfer is so relaxed. What we practice, we become masters of.'
+    "
+    [icon]="'surfing'"
+    [title]="'new spot'"
+    [imageUrl]="'/surf.jpg'"
+    [buttonText]="'follow your instinct'"
+  ></app-card>
 </div>
 <app-timeline></app-timeline>
 <app-timeline [vertical]="true"></app-timeline>
-<app-widget-counter [icon]="'sports_soccer'" [value]="value"
-  [description]="'Buts dans le monde en 2025'"></app-widget-counter>
+<app-widget-counter
+  [icon]="'sports_soccer'"
+  [value]="value"
+  [description]="'Buts dans le monde en 2025'"
+></app-widget-counter>
 <app-file-upload></app-file-upload>
 <app-block [title]="'block 1'" [id]="1">
-  <strong>This is the first item's accordion body.</strong> It is shown by
-  default, until the collapse plugin adds the appropriate classes that we use to
-  style each element. These classes control the overall appearance, as well as
-  the showing and hiding via CSS transitions. You can modify any of this with
-  custom CSS or overriding our default variables. It's also worth noting that
-  just about any HTML can go within the <code>.accordion-body</code>, though the
+  <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the
+  appropriate classes that we use to style each element. These classes control the overall appearance, as well as the
+  showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default
+  variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the
   transition does limit overflow.
 </app-block>
 <app-block [title]="'block 2'" [id]="2">
-  <strong>This is the first item's accordion body.</strong> It is shown by
-  default, until the collapse plugin adds the appropriate classes that we use to
-  style each element. These classes control the overall appearance, as well as
-  the showing and hiding via CSS transitions. You can modify any of this with
-  custom CSS or overriding our default variables. It's also worth noting that
-  just about any HTML can go within the <code>.accordion-body</code>, though the
+  <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the
+  appropriate classes that we use to style each element. These classes control the overall appearance, as well as the
+  showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default
+  variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the
   transition does limit overflow.
   <app-action-buttons (click)="startAction($event)"></app-action-buttons>
 </app-block>
+<app-date-field></app-date-field>
 <app-input-date></app-input-date>
 <div>
   <app-infinite-tree-view [treeData]="treeData"> </app-infinite-tree-view>

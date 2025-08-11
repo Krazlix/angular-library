@@ -1,0 +1,44 @@
+.dateFieldContainer{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 5px 4px;
+  border-radius: 4px;
+  border: #1976d2 1px solid;
+  background-color: transparent;
+  cursor: text;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    .outlined-fieldset {
+      border-color: rgba(0, 0, 0, 0.87);
+    }
+  }
+
+  &.focused {
+    .outlined-fieldset {
+      border-color: #1976d2;
+      border-width: 2px;
+    }
+
+    legend input {
+      color: #1976d2;
+    }
+  }
+}
+input {
+  width: 35px;
+  text-align: center;
+  border:none;
+  margin: 3px;
+  &:focus {
+    background-color: rgba(25, 118, 210, 0.08);
+      border-radius: 2px;
+      outline: 1px solid #1976d2;
+      outline-offset: 2px;
+  }
+  &.year {
+    width: 50px;
+  }
+}

@@ -1,0 +1,42 @@
+<div class="dateFieldContainer">
+  <input
+    type="text"
+    #dayInput
+    [placeholder]="placeholderValue.get(dateTypeKey[0])"
+    [max]="dateValueSettings.get(dateTypeKey[0])?.[1]"
+    [min]="dateValueSettings.get(dateTypeKey[0])?.[1]"
+    [maxlength]="2"
+    (paste)="datePasteValue($event, dateTypeKey[0])"
+    (keydown)="onDateChange($event, dateTypeKey[0], monthInput)"
+    (focus)="onFocus($event, dateTypeKey[0])"
+    [(ngModel)]="dayValue"
+  />
+
+  <span aria-readonly="true">/</span>
+  <input
+    type="text"
+    #monthInput
+    [placeholder]="placeholderValue.get(dateTypeKey[1])"
+    [max]="dateValueSettings.get(dateTypeKey[1])?.[1]"
+    [min]="dateValueSettings.get(dateTypeKey[1])?.[1]"
+    [maxlength]="2"
+    (paste)="datePasteValue($event, dateTypeKey[1])"
+    (keydown)="onDateChange($event, dateTypeKey[1], yearInput)"
+    (focus)="onFocus($event, dateTypeKey[1])"
+    [(ngModel)]="monthValue"
+  />
+  <span aria-readonly="true">/</span>
+  <input
+    class="year"
+    #yearInput
+    type="text"
+    [placeholder]="placeholderValue.get(dateTypeKey[2])"
+    [max]="dateValueSettings.get(dateTypeKey[2])?.[1]"
+    [min]="dateValueSettings.get(dateTypeKey[2])?.[1]"
+    [maxlength]="2"
+    (paste)="datePasteValue($event, dateTypeKey[2])"
+    (keydown)="onDateChange($event, dateTypeKey[2])"
+    (focus)="onFocus($event, dateTypeKey[2])"
+    [(ngModel)]="yearValue"
+  />
+</div>
